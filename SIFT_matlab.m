@@ -1,5 +1,6 @@
-I1 = rgb2gray(imread('face_1.jpg'));
-I2 = rgb2gray(imread('face_2.jpg'));
+
+I1 = rgb2gray(imread('2d_face1/face_1_5.jpg'));
+I2 = rgb2gray(imread('2d_face1/face_1_6.jpg'));
 
 points1 = detectHarrisFeatures(I1);
 points2 = detectHarrisFeatures(I2);
