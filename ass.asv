@@ -1,4 +1,4 @@
-cloud = pcread('1/1_2.pcd');
+cloud = pcread('1/1_15.pcd');
 % pcshow(cloud)
 
 % Filter for NaN and inf values
@@ -28,7 +28,7 @@ subplot(1,2,1), imshow(color_pc);
 %subplot(1,2,2), imshow(color_cont);
 
 %imwrite(color_cont, 'face_1_15.jpg');
-imwrite(shapedimg, '2dface_1_2.jpg');
+imwrite(shapedimg);
 % contours = imcontour(gray,20);
 % 
 % for c = contours
