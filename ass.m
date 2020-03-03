@@ -1,4 +1,4 @@
-cloud = pcread('4/4_6.pcd');
+cloud = pcread('4/4_4.pcd');
 % pcshow(cloud)
 
 % Filter for NaN and inf values
@@ -22,8 +22,10 @@ gray = rgb2gray(color_pc);
 
 mask_c = bwareaopen(gray, 1500);
 color_cont = bsxfun(@times, color_pc, cast(mask_c, 'like', color_pc));
-subplot(1,2,1), imshow(color_pc);
-subplot(1,2,2), imshow(color_cont);
+%subplot(1,2,1), imshow(color_pc);
+%subplot(1,2,2), imshow(color_cont);
+
+imwrite(color_cont, 'face_4.jpg');
 
 % contours = imcontour(gray,20);
 % 

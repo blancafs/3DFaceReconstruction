@@ -12,7 +12,7 @@ clear;
 clc;
 row=256;
 colum=256;
-img=imread('lenna.jpg');
+img=imread('face2d.jpeg');
 img=imresize(img,[row,colum]);
 img=rgb2gray(img);
 % img=histeq(img);
