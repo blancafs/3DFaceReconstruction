@@ -1,4 +1,4 @@
-cloud = pcread('4/4_6.pcd');
+cloud = pcread('3/3_12.pcd');
 % pcshow(cloud)
 
 % Filter for NaN and inf values
@@ -20,7 +20,7 @@ color_pc(mask,:) = 0;
 color_pc = reshape(color_pc, [640,480,3]);
 gray = rgb2gray(color_pc);
 
-mask_c = bwareaopen(gray, 1500);
+mask_c = bwareaopen(gray, 20000);
 color_cont = bsxfun(@times, color_pc, cast(mask_c, 'like', color_pc));
 subplot(1,2,1), imshow(color_pc);
 subplot(1,2,2), imshow(color_cont);
