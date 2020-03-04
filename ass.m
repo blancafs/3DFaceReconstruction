@@ -1,5 +1,5 @@
-cloud = pcread('1/1_2.pcd');
-% pcshow(cloud)
+cloud = pcread('1/1_1.pcd');
+pcshow(cloud)
 
 % Filter for NaN and inf values
 % cloud = removeInvalidPoints(cloud);
@@ -24,11 +24,11 @@ gray = rgb2gray(color_pc);
 
 mask_c = bwareaopen(gray, 1500);
 color_cont = bsxfun(@times, color_pc, cast(mask_c, 'like', color_pc));
-subplot(1,2,1), imshow(color_pc);
+%subplot(1,2,1), imshow(color_pc);
 %subplot(1,2,2), imshow(color_cont);
 
 %imwrite(color_cont, 'face_1_15.jpg');
-imwrite(shapedimg, '2dface_1_2.jpg');
+%imwrite(shapedimg, '2dface_1_2.jpg');
 % contours = imcontour(gray,20);
 % 
 % for c = contours
