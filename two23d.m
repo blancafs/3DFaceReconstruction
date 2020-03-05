@@ -28,9 +28,6 @@ disp('PCD INDEX...');
 disp(pcdidx);
 
 outputcoors = pcdidx;
-% newpc = pointCloud(locations, 'Color',colors);
-% 
-% pcshow(newpc);
 
 end
 

@@ -1,4 +1,4 @@
-function outputcoors = two23d(twodcoors, filename)
+ind function outputcoors = two23d(twodcoors, filename)
 %TWO23D Give 2d coordinates and fetch 3d from original img
 % make sure passing correct filename and coors
 
