@@ -22,10 +22,10 @@ imshow(twodimg);
 % Draw chosen coordinates on 2d image
 viscircles(twodcoors, 5 ,'LineStyle','--');
 
-disp('2d INDEX...');
-disp(rlindx);
-disp('PCD INDEX...');
-disp(pcdidx);
+% disp('2d INDEX...');
+% disp(rlindx);
+% disp('PCD INDEX...');
+% disp(pcdidx);
 
 outputcoors = pcdidx;
 

@@ -27,14 +27,6 @@ color_cont = bsxfun(@times, color_pc, cast(mask_c, 'like', color_pc));
 %subplot(1,2,1), imshow(color_pc);
 %subplot(1,2,2), imshow(color_cont);
 
-%imwrite(color_cont, 'face_1_15.jpg');
-%imwrite(shapedimg, '2dface_1_2.jpg');
-% contours = imcontour(gray,20);
-% 
-% for c = contours
-%     disp(c);
-% end
-%imshow(contours);
 
 %new = pointCloud(loc_pc, 'Color', color_pc);
 
