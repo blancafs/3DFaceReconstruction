@@ -1,33 +1,39 @@
-function outputcoors = two23d(twodcoors, filename)
-%TWO23D Give 2d coordinates and fetch 3d from original img
+function full_pcd = two23d(twodcoors, filename)
+%TWO23D Given 2d coordinates fetch 3d from original img
 % make sure passing correct filename and coors
 
 
 % Get location and color of pcd file
 cloud = pcread(filename);
-colors = cloud.Color;
+cloud = removeInvalidPoints(cloud);
 locations = cloud.Location;
 
-% Coordinates from 2d image
-x = twodcoors(1);
-y = twodcoors(2);
+[row,col] = size(twodcoors);
 
-% Convertind 2d coordinates to equivalent pdc index and rounding
-rlindx = double(double(x)*480)-double(480-y);
-intidx = round(rlindx);
-pcdidx = locations(intidx,:);
+full_pcd = zeros(row,3);
 
-twodimg = imread('2dface_1_1.jpg');
-imshow(twodimg);
+for i = 1:row
+    % Coordinates from 2d image
+    x = twodcoors(i,1);
+    y = twodcoors(i,2);
+
+    % Convert 2d coordinates to equivalent pdc 3d coordinates
+    rlindx = sub2ind([480 640], y, x);
+    linear_idx = round(rlindx);
+    full_pcd(i,:) = locations(linear_idx,:);
+end
+
+% twodimg = imread('2dface_1_1.jpg');
+% imshow(twodimg);
 % Draw chosen coordinates on 2d image
-viscircles(twodcoors, 5 ,'LineStyle','--');
+% viscircles(twodcoors, 5 ,'LineStyle','--');
 
 % disp('2d INDEX...');
 % disp(rlindx);
 % disp('PCD INDEX...');
 % disp(pcdidx);
 
-outputcoors = pcdidx;
+% outputcoors = pcdidx;
 
 end
 

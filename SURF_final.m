@@ -1,6 +1,5 @@
+function [locations1, locations2] = SURF_final(I1, I2)
 % read 2d gray images
-I1 =  rgb2gray(imread('2d_face1/face_1_1.jpg'));
-I2 =  rgb2gray(imread('2d_face1/face_1_2.jpg'));
 
 % detect surf points
 points1 = detectSURFFeatures(I1);
@@ -19,6 +18,7 @@ matchedPoints2 = vpts2(indexPairs(:,2));
 locations1 = matchedPoints1.Location;
 locations2 = matchedPoints2.Location;
 
-disp(locations1);
-disp(locations2);
-figure; showMatchedFeatures(I1,I2,matchedPoints1,matchedPoints2); 
+% disp(locations1);
+% disp(locations2);
+% figure; showMatchedFeatures(I1,I2,matchedPoints1,matchedPoints2); 
+end
