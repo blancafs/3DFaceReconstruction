@@ -1,0 +1,21 @@
+function translated_pcd = translate(Image1,Image2,cloud,pcd1,pcd2)
+
+I1 = rgb2gray(imread(Image1));
+I2 = rgb2gray(imread(Image2));
+
+[locations1, locations2] = SURF_final(I1,I2);
+
+loc1 = two23d(locations1, pcd1);
+loc2 = two23d(locations2, pcd2);
+
+[rotation, translation] = get_transformation(loc1, loc2);
+
+% cloud = segment(pcd);
+loc_pc = cloud.Location;
+color_pc = im2double(cloud.Color);
+
+new_loc_pc = loc_pc*rotation + translation;
+
+translated_pcd = pointCloud(new_loc_pc, 'Color', color_pc);
+end
+

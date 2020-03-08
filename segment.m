@@ -1,6 +1,4 @@
-function new = segment(filename)
-cloud = pcread(filename);
-pcshow(cloud)
+function new = segment(cloud)
 
 % Filter for NaN and inf values
 % cloud = removeInvalidPoints(cloud);
