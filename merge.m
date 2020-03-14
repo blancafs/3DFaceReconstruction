@@ -14,12 +14,13 @@ pcd{13} = 'merged13.pcd';
 pcd{14} = 'merged14.pcd';
 pcd{15} = '1/1_15.pcd';
 
-% cloud = pcread(pcd{1});
-% 
-% for i = 2:15
-%     cloud = pcmerge(cloud,pcread(pcd{i}),5);
-% end
+cloud = pcread(pcd{1});
 
-cloud
+for i = 2:5
+    if i == 5
+        cloud = pcmerge(cloud,segment(pcread('1/1_5.pcd')),0.0002);
+    end
+    cloud = pcmerge(cloud,pcread(pcd{i}),0.0002);
+end
 
 pcshow(cloud)

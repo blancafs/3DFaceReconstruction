@@ -30,11 +30,17 @@ pcd{13} = '1/1_13.pcd';
 pcd{14} = '1/1_14.pcd';
 pcd{15} = '1/1_15.pcd';
 
-n = 14;
-cloud = segment(pcread(pcd{n}));
-for i = n:14
-    cloud = translate(images{n},images{n+1},cloud,pcd{n},pcd{n+1});
+for n = 1:4
+    cloud = segment(pcread(pcd{n}));
+    for i = n:4
+        disp('translating frame')
+        disp(i)
+        cloud = translate(images{i},images{i+1},cloud,pcd{i},pcd{i+1});
+    end
+    disp('done translating frame')
+    disp(n)
+    fname = sprintf('merged%d.pcd', n);
+    pcwrite(cloud, fname);
 end
 
-pcwrite(cloud, 'merged14.pcd');
 

@@ -18,7 +18,4 @@ matchedPoints2 = vpts2(indexPairs(:,2));
 locations1 = matchedPoints1.Location;
 locations2 = matchedPoints2.Location;
 
-% disp(locations1);
-% disp(locations2);
-% figure; showMatchedFeatures(I1,I2,matchedPoints1,matchedPoints2); 
 end
